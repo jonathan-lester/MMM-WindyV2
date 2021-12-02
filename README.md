@@ -42,7 +42,7 @@ Enjoy!
 ### CONFIGURATION
 You will need to get your own API key which can be obtained [here](https://api4.windy.com/api-key).
   o use the module, add the following to the modules array in your `config/config.js` file:
-```JSON
+```js
 {
   module: "MMM-WindyV2",
   position: 'fullscreen_above', // this must be set to 'fullscreen_above'
@@ -70,7 +70,7 @@ You will need to get your own API key which can be obtained [here](https://api4.
 ### TRIGGERING EVENTS WITH THE NOTIFICATION API
 Using Jopyth's [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) API interface you can send notifications to the MMM-Windyv2 module to trigger various events.
 ### Example configuration for MMM config.js:
-```JSON
+```js
 {
   module: 'MMM-Remote-Control',
   // uncomment the following line to show the URL of the remote control on the mirror
