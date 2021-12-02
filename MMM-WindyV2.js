@@ -39,7 +39,7 @@ Module.register('MMM-WindyV2', {
         windyMetric: 'mph',               // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
         updateTimer: 60 * 60 * 1000 * 6,  // update per 6 hours
         retainZoom: true,                 // retain zoomlevel between changing overlays
-        hideProgressBar: false,           // Hide enite progress bar section on the bottom of the screen
+        hideProgressBar: false,           // Hide entire progress bar section on the bottom of the screen
         hideProgressLineOnly: true,       // Hide only the progress line and leave the timecode
         refreshLockout: 5 * 1000 * 60     // We won't refresh unless 5 minutes has passed
     },

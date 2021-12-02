@@ -61,7 +61,7 @@ You will need to get your own API key which can be obtained [here](https://api4.
     windyMetric: 'm/s',     // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
     updateTimer: 60 * 60 * 1000 * 6, // update per 6 hours
     retainZoom: true,       // retain zoomlevel between changing overlays
-    hideProgressBar: false, // Hide enite progress bar section on the bottom of the screen
+    hideProgressBar: false, // Hide entire progress bar section on the bottom of the screen
     hideProgressLineOnly: true  // Hide only the progress line and leave the timecode
   }
 },
