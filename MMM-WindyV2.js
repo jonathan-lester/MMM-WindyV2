@@ -10,7 +10,7 @@
  */
 
 /**
- * @external MM 	  @see https://github.com/MichMich/MagicMirror/blob/master/js/main.js
+ * @external MM       @see https://github.com/MichMich/MagicMirror/blob/master/js/main.js
  *
  * @module MMM-WindyV2
  *
@@ -20,29 +20,29 @@
 var currentZoom
 var gWindyAPI
 var gCurLayer
-var gLastRefresh=0;
+var gLastRefresh = 0;
 
 Module.register('MMM-WindyV2', {
 
     defaults: {
         initLoadDelay: 50,
-        apiKey: '',						    // insert your API key here (preferably in your config.js)
-        latitude: 69.23,					// latitude for center of map
-        longitude: 17.98,					// longitude for center of map
-        zoomLevel: 6,						// set zoom level of map
-        showLayer: 'wind',					// Supported layers in free API versions are: wind, rain, clouds, temp, pressure, currents, waves
-        rotateLayers: true,				    // if set to 'true' it will rotate layers as specified in 'layersToRotate'
-        layersToRotate: ['wind', 'rain'],	// choose from wind, rain, clouds, temperature, pressure, currents, waves
-        delayRotate: 5000,					// in milliseconds, default per 5 seconds
-        wMinZoom: 3,						// set minimum zoom level for WindyV2
-        wMaxZoom: 17,						// set maximum zoom level for WindyV2
-        windyMetric: 'mph',				    // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
-        updateTimer: 60 * 60 * 1000 * 6,	// update per 6 hours
-        retainZoom: true,					// retain zoomlevel between changing overlays
-        hideProgressBar: false,			    // Hide enite progress bar section on the bottom of the screen
-        hideProgressLineOnly: true,		    // Hide only the progress line and leave the timecode
+        apiKey: '',                       // insert your API key here (preferably in your config.js)
+        latitude: 69.23,                  // latitude for center of map
+        longitude: 17.98,                 // longitude for center of map
+        zoomLevel: 6,                     // set zoom level of map
+        showLayer: 'wind',                // Supported layers in free API versions are: wind, rain, clouds, temp, pressure, currents, waves
+        rotateLayers: true,               // if set to 'true' it will rotate layers as specified in 'layersToRotate'
+        layersToRotate: ['wind', 'rain'], // choose from wind, rain, clouds, temperature, pressure, currents, waves
+        delayRotate: 5000,                // in milliseconds, default per 5 seconds
+        wMinZoom: 3,                      // set minimum zoom level for WindyV2
+        wMaxZoom: 17,                     // set maximum zoom level for WindyV2
+        windyMetric: 'mph',               // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
+        updateTimer: 60 * 60 * 1000 * 6,  // update per 6 hours
+        retainZoom: true,                 // retain zoomlevel between changing overlays
+        hideProgressBar: false,           // Hide enite progress bar section on the bottom of the screen
+        hideProgressLineOnly: true,       // Hide only the progress line and leave the timecode
         disableParticles: false,
-        refreshLockout: 5*1000*60           // We won't refresh unless 5 minutes has passed
+        refreshLockout: 5 * 1000 * 60     // We won't refresh unless 5 minutes has passed
     },
 
     voice: {
@@ -203,7 +203,7 @@ Module.register('MMM-WindyV2', {
         }).bind(this);
 
         if (notification === 'MMM-WINDYV2REFRESH') {
-            if( gLastRefresh === 0 || Date.now() >gLastRefresh+5*1000*60) {
+            if (gLastRefresh === 0 || Date.now() > gLastRefresh + 5 * 1000 * 60) {
                 Log.error('<<<>>> Performing refresh');
                 this.updateDom();
                 this.scheduleInit(0);
@@ -279,5 +279,3 @@ Module.register('MMM-WindyV2', {
         ];
     }
 })
-
-
