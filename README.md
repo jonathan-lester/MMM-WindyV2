@@ -92,7 +92,7 @@ Using Jopyth's [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control
 You can then issue commands to the MMM-Windyv2 plugin by using curl. See https://documenter.getpostman.com/view/6167403/Rzfni66c and https://github.com/Jopyth/MMM-Remote-Control/blob/master/API/README.md for more information.
 ```bash
 curl --location --request GET 'http://localhost:8080/api/notification/<NOTIFICATION TO SEND>?apiKey=<your MMM-Remote-Control apiKey>' --data-raw ''
-curl --location --request GET 'http://localhost:8080/api/notification/MMM-WINDYV2UPDATE?apiKey=<your MMM-Remote-Control apiKey>' --data-raw ''
+curl --location --request GET 'http://localhost:8080/api/notification/MMM-WINDYV2REFRESH?apiKey=<your MMM-Remote-Control apiKey>' --data-raw ''
 curl --location --request GET 'http://localhost:8080/api/notification/CHANGEWIND?apiKey=<your MMM-Remote-Control apiKey>' --data-raw ''
 ```
   he following notification commands are implemented. Note, that these notifications get sent to all modules, so if you implement something new be sure to pick a reasonably unique notification.
