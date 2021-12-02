@@ -41,7 +41,6 @@ Module.register('MMM-WindyV2', {
         retainZoom: true,                 // retain zoomlevel between changing overlays
         hideProgressBar: false,           // Hide enite progress bar section on the bottom of the screen
         hideProgressLineOnly: true,       // Hide only the progress line and leave the timecode
-        disableParticles: false,
         refreshLockout: 5 * 1000 * 60     // We won't refresh unless 5 minutes has passed
     },
 
@@ -131,8 +130,6 @@ Module.register('MMM-WindyV2', {
                 key: this.config.apiKey,
                 lat: this.config.latitude,
                 lon: this.config.longitude,
-                // animate: true,
-                //  particlesAnim: 'on',
                 zoom: this.config.zoomLevel,
                 minZoom: 3,
                 maxZoom: 18,
