@@ -4,7 +4,7 @@
 Fork of the TheStigh's [MMM-Windv2](https://github.com/TheStigh/MMM-WindyV2) plugin for [MagicMirror](https://github.com/MichMich/MagicMirror). This fork cleans up some of the code so there's only a single WindyAPI call with a global variable used to reduce some of the complexity.
 
 ### INTRODUCTION
-  his is a module for [MagicMirror](https://github.com/MichMich/MagicMirror) that adds the [Windy](https://www.windy.com/) weather map and was originally written by santi4488 as [MMM-windy](https://github.com/santi4488/MMM-windy). This is an extensive re-write that adds several new options, like adding your Lat & Lon to center on your location, setting zoom level and most importantly - adding the layer your prefer to see. You can choose from: wind, rain, clouds, temperature, pressure, currents and waves (free version). Further it now has support for voice control through [MMM-VoiceControlMe](https://github.com/Mykle1/MMM-VoiceControlMe) :)
+This is a module for [MagicMirror](https://github.com/MichMich/MagicMirror) that adds the [Windy](https://www.windy.com/) weather map and was originally written by santi4488 as [MMM-windy](https://github.com/santi4488/MMM-windy). This is an extensive re-write that adds several new options, like adding your Lat & Lon to center on your location, setting zoom level and most importantly - adding the layer your prefer to see. You can choose from: wind, rain, clouds, temperature, pressure, currents and waves (free version). Further it now has support for voice control through [MMM-VoiceControlMe](https://github.com/Mykle1/MMM-VoiceControlMe) :)
 
 Enjoy!
 
@@ -41,7 +41,7 @@ Enjoy!
 
 ### CONFIGURATION
 You will need to get your own API key which can be obtained [here](https://api4.windy.com/api-key).
-  o use the module, add the following to the modules array in your `config/config.js` file:
+to use the module, add the following to the modules array in your `config/config.js` file:
 ```js
 {
   module: "MMM-WindyV2",
@@ -54,11 +54,12 @@ You will need to get your own API key which can be obtained [here](https://api4.
       zoomLevel: 6,             // set your preferred zoom level
       showLayer: 'rain',        // wind, rain, clouds, temp, pressure, currents, waves
     rotateLayers: false,        // set to true to rotate layers
-    layersToRotate: ['wind','rain'],   // layers to rotate
+    layersToRotate: ['wind', 'temp', 'rain'],   // layers to rotate
     delayRotate: 5000,      // delay between rotated layers, in milliseconds
     wMinZoom: 3,            // set minimum zoom level for WindyV2
     wMaxZoom: 17,           // set maximum zoom level for WindyV2
     windyMetric: 'm/s',     // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
+    tempMetric: 'F',        // 'F' or 'C' (Windy default is C)
     updateTimer: 60 * 60 * 1000 * 6, // update per 6 hours
     retainZoom: true,       // retain zoomlevel between changing overlays
     hideProgressBar: false, // Hide entire progress bar section on the bottom of the screen
@@ -66,6 +67,8 @@ You will need to get your own API key which can be obtained [here](https://api4.
   }
 },
 ```
+### Available Layers:
+Windy does not make the Weather radar layer available outside their own homepage, and it is not supported by the Windy API (even at the paid levels). The current set of layers that you can select from are: ['wind', 'rain', 'temp', 'clouds', 'currents', 'pressure', 'waves']
 
 ### TRIGGERING EVENTS WITH THE NOTIFICATION API
 Using Jopyth's [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) API interface you can send notifications to the MMM-Windyv2 module to trigger various events.

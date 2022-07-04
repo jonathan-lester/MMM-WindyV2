@@ -30,13 +30,14 @@ Module.register('MMM-WindyV2', {
         latitude: 69.23,                  // latitude for center of map
         longitude: 17.98,                 // longitude for center of map
         zoomLevel: 6,                     // set zoom level of map
-        showLayer: 'wind',                // Supported layers in free API versions are: wind, rain, clouds, temp, pressure, currents, waves
+        showLayer: 'rain',                // Supported layers in free API versions are: wind, rain, clouds, temp, pressure, currents, waves
         rotateLayers: true,               // if set to 'true' it will rotate layers as specified in 'layersToRotate'
-        layersToRotate: ['wind', 'rain'], // choose from wind, rain, clouds, temperature, pressure, currents, waves
+        layersToRotate: ['temp', 'wind', 'rain'], // choose from wind, rain, clouds, temperature, pressure, currents, waves
         delayRotate: 5000,                // in milliseconds, default per 5 seconds
         wMinZoom: 3,                      // set minimum zoom level for WindyV2
         wMaxZoom: 17,                     // set maximum zoom level for WindyV2
         windyMetric: 'mph',               // 'kt', 'bft', 'm/s', 'km/h' and 'mph'
+        tempMetric: 'F',                  // 'F' or 'C' (Windy default is C)
         updateTimer: 60 * 60 * 1000 * 6,  // update per 6 hours
         retainZoom: true,                 // retain zoomlevel between changing overlays
         hideProgressBar: false,           // Hide entire progress bar section on the bottom of the screen
@@ -59,7 +60,10 @@ Module.register('MMM-WindyV2', {
 
     getScripts: function () {
         return [
-            'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
+            // Use updated leaflet version from windy:
+            'https://www.windy.com/js/leaflet140_patched_tileLayer.v17.js',
+            // Standard API version:
+            // 'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
         ];
     },
 
@@ -180,6 +184,13 @@ Module.register('MMM-WindyV2', {
                     }
                 });
                 overlays.wind.setMetric(this.config.windyMetric);
+                // Set temperature metric (defaults to C)
+                if (this.config.tempMetric == 'C') {
+                    overlays.temp.setMetric("°C")
+                } else {
+                    overlays.temp.setMetric("°F")
+                }
+                // console.log("Temp metrics: " + overlays.temp.listMetrics())
                 map.setZoom(currentZoom);
                 if (this.config.hideProgressBar) {
                     document.getElementById('progress-bar').style.display = 'none';
